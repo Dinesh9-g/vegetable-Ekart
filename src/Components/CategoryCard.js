@@ -9,6 +9,8 @@ const CategoryCard = ({ img, name, count }) => {
       <div className="flex-1 pl-4">
         <p className="text-lg font-medium text-gray-800">{name}</p>
         <p className="text-sm text-gray-500">{count}</p>
+        <p className="text-sm text-gray-500">{count}</p>
+
       </div>
     </div>
   );
