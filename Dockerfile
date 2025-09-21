@@ -8,7 +8,7 @@ RUN npm run build
 
 # production stage
 
-FROM node:18-apline
+FROM node:18-alpine
 WORKDIR /app
 COPY --from=builder /app/build ./build
 RUN npm install -g serve
