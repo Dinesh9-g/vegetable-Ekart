@@ -1,16 +1,15 @@
-#build stage
-FROM node:18 AS Builder
+# build stage
+FROM node:18 AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm install 
+RUN npm install --legacy-peer-deps
 COPY . .
 RUN npm run build
 
 # production stage
-
 FROM node:18-alpine
 WORKDIR /app
 COPY --from=builder /app/build ./build
 RUN npm install -g serve
 EXPOSE 6001
-CMD ["serve","-s" ,"build"]
+CMD ["serve","-s","build","-l","6001"]
