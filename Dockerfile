@@ -12,4 +12,5 @@ WORKDIR /app
 COPY --from=builder /app/build ./build
 RUN npm install -g serve
 EXPOSE 6001
-CMD ["serve","-s","build","-l","6001"]
+CMD ["serve", "-s", "build", "-l", "6001", "--listen", "0.0.0.0"]
+
